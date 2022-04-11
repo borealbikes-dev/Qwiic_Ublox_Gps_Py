@@ -47,7 +47,7 @@ int32 | latitude | degrees
 int32  | ellipsoid_height | millimeters
 int32  | msl_height | millimeters
 uint32  | horizontal_accuracy | millimeters
-uint32 vertical_accuracy | millimeters
+uint32 | vertical_accuracy | millimeters
 int32  | ned_north_velocity | millimeters/second
 int32  | ned_east_velocity | millimeters/second
 int32  | ned_down_velocity | millimeters/second
