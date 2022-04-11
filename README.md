@@ -2,8 +2,62 @@
 
 + Typically, the GPS device is connected to the Jetson at `/dev/ttyACM0`.
 
-## ROS Message Construction
+## ROS2 Message Implementation
 
+### Data types
+
+[The manual](assets/u-blox-zed-f9p-interface-description.pdf) describes the data types used internally. The ROS2 message data types closely follow the ones used by U-blox.
+
+Page 30:
+
+![](assets/data-types-page-30.png)
+
+Page 31:
+
+![](assets/data-types-page-31.png)
+
+### GPS Data Output
+
+The ROS2 message relays most of the following data:
+
+Page 155:
+
+![](assets/page155.png)
+
+Page 156:
+
+![](assets/page156.png)
+
+### Data in ROS2 msg and corresponding type/units
+
+Actual file at: [`codename-merckx/project/gps_ws/src/ublox_gps_interface/msg`](https://github.com/borealbikes-dev/codename-merckx/blob/main/project/gps_ws/src/ublox_gps_interface/msg/UbloxGPS.msg)
+
+Data Type | Name | Units
+--- | --- | ---
+uint16 | year | 
+uint8 | month |
+uint8 | day |
+uint8 | hour |
+uint8 | minutes | 
+float64 |precise_seconds | seconds
+float32 | time_accuracy | nanoseconds
+uint8 | num_satellites | 
+int32 | longitude | degrees
+int32 | latitude | degrees
+int32  | ellipsoid_height | millimeters
+int32  | msl_height | millimeters
+uint32  | horizontal_accuracy | millimeters
+uint32 vertical_accuracy | millimeters
+int32  | ned_north_velocity | millimeters/second
+int32  | ned_east_velocity | millimeters/second
+int32  | ned_down_velocity | millimeters/second
+int32  | ground_speed | millimeters/second
+int32  | heading_of_motion | degrees
+uint32  | speed_accuracy | millimeters/second
+uint16  | position_dop | None: Dilution of Precision
+int32  | heading_of_vehicle | degrees
+int16  | magnetic_declination | degrees
+uint16  | magnetic_declination_accuracy | degrees
 
 
 Qwiic_Ublox_Gps_Py
