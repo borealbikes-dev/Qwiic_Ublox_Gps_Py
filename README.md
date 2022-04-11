@@ -2,6 +2,10 @@
 
 + Typically, the GPS device is connected to the Jetson at `/dev/ttyACM0`.
 
+## ROS Message Construction
+
+
+
 Qwiic_Ublox_Gps_Py
 ----
 
